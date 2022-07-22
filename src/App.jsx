@@ -1,9 +1,12 @@
 import PublicRoutes from "./routes/PublicRoutes";
+import NewsProvider from "./context/newsContext";
 
 const App = () => {
   return (
     <>
-      <PublicRoutes />
+      <NewsProvider>
+        <PublicRoutes />
+      </NewsProvider>
     </>
   );
 };

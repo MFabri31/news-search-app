@@ -1,15 +1,11 @@
-import { useEffect, useState } from "react";
-import { Col, Row } from "react-bootstrap";
+import { useContext } from "react";
+import { Row, Col } from "react-bootstrap";
 import Search from "../../components/Search";
-import { newsMock } from "../../mocks/newsMock.js";
 import NewsList from "../../components/NewsList/NewList";
+import { NewsContext } from "../../context/newsContext";
 
 const HomePage = () => {
-  const [news, setNews] = useState([]);
-
-  useEffect(() => {
-    setNews([newsMock]);
-  }, []);
+  const { loading } = useContext(NewsContext);
 
   return (
     <>
@@ -20,7 +16,8 @@ const HomePage = () => {
       </Row>
       <main>
         <Row className="justify-content-center">
-          <NewsList news={news} />
+          {loading && <h3 className="text-center">Cargando...</h3>}
+          <NewsList />
         </Row>
       </main>
     </>

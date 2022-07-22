@@ -1,17 +1,21 @@
-import { Card } from "react-bootstrap";
+import { Card, NavLink } from "react-bootstrap";
 
 const NewCard = ({ news }) => {
-  const { platformName, title, image, date } = news;
+  const { author, title, urlToImage, publishedAt, url } = news;
+
+  const date = new Date(publishedAt);
   return (
     <>
-      <Card className="d-flex flex-row align-items-center mb-3 shadow-sm">
-        <Card.Body>
-          <Card.Text>Plataforma: {platformName}</Card.Text>
-          <Card.Text>Titulo: {title} </Card.Text>
-          <Card.Text>Fecha: {date} </Card.Text>
-        </Card.Body>
-        <Card.Img src={image} alt={title} style={{ width: "25%" }} />
-      </Card>
+      <NavLink href={url} target="_blank">
+        <Card className="d-flex flex-row align-items-center mb-3 shadow-sm text-secondary">
+          <Card.Body>
+            <Card.Text>{author}</Card.Text>
+            <Card.Text>{title} </Card.Text>
+            <Card.Text>Publicado el: {date.toLocaleString()}</Card.Text>
+          </Card.Body>
+          <Card.Img src={urlToImage} alt={title} style={{ width: "25%" }} />
+        </Card>
+      </NavLink>
     </>
   );
 };

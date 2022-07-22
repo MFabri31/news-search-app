@@ -1,15 +1,15 @@
-import { useRef } from "react";
+import { useContext, useRef } from "react";
 import { Form, Button } from "react-bootstrap";
+import { NewsContext } from "../../context/newsContext";
 
 const Search = () => {
   const inputRef = useRef();
 
-  const handleChange = (e) => {
-    console.log(inputRef.current.value);
-  };
+  const { getTerm } = useContext(NewsContext);
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    getTerm(inputRef.current.value);
   };
 
   return (
@@ -18,7 +18,6 @@ const Search = () => {
         <Form.Control
           type="text"
           placeholder="Buscar noticia..."
-          onChange={handleChange}
           className="py-2 mb-3 border-2 border-secondary shadow-none"
           ref={inputRef}
         />

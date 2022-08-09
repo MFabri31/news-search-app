@@ -7,6 +7,7 @@ const NewsProvider = ({ children }) => {
   const [term, setTerm] = useState("");
   const [news, setNews] = useState([]);
   const [loading, setLoading] = useState(null);
+  const [totalResults, setTotalResults] = useState(0);
 
   const getTerm = (term) => setTerm(term);
 
@@ -15,9 +16,10 @@ const NewsProvider = ({ children }) => {
       setLoading(true);
       const data = await getNews(term);
 
-      const { articles } = data;
+      const { articles, totalResults } = data;
 
       setNews(articles);
+      setTotalResults(totalResults);
       setLoading(false);
     }
   };
@@ -27,7 +29,7 @@ const NewsProvider = ({ children }) => {
   }, [term]);
 
   return (
-    <NewsContext.Provider value={{ news, loading, getTerm }}>
+    <NewsContext.Provider value={{ news, loading, getTerm, totalResults }}>
       {children}
     </NewsContext.Provider>
   );

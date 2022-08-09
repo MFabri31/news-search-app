@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import { Row, Col } from "react-bootstrap";
 import Search from "../../components/Search";
-import NewsList from "../../components/NewsList/NewList";
+import NewsList from "../../components/NewsList/NewsList";
 import { NewsContext } from "../../context/newsContext";
 
 const HomePage = () => {

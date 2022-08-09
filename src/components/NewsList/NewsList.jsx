@@ -4,7 +4,7 @@ import NewCard from "../NewsCard/NewsCard";
 import { NewsContext } from "../../context/newsContext";
 
 const NewsList = () => {
-  const { news } = useContext(NewsContext);
+  const { news, totalResults } = useContext(NewsContext);
 
   const newList = news?.map((news, index) => (
     <Col md={8}>
@@ -16,7 +16,9 @@ const NewsList = () => {
     <>
       <Col md={8}>
         {news?.length > 0 && (
-          <p className="lead ms-3">Total de rusultados: {news.length}</p>
+          <p className="lead ms-3">
+            Está viendo {news.length} noticias de {totalResults} resultados
+          </p>
         )}
       </Col>
       {newList}

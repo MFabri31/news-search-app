@@ -3,6 +3,7 @@ import { Row, Col } from "react-bootstrap";
 import Search from "../../components/Search";
 import NewsList from "../../components/NewsList/NewsList";
 import { NewsContext } from "../../context/newsContext";
+import Loading from "../../components/Loading";
 
 const HomePage = () => {
   const { loading } = useContext(NewsContext);
@@ -16,7 +17,7 @@ const HomePage = () => {
       </Row>
       <main>
         <Row className="justify-content-center">
-          {loading && <h3 className="text-center">Cargando...</h3>}
+          {loading && <Loading />}
           <NewsList />
         </Row>
       </main>

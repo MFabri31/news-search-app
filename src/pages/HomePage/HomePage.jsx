@@ -4,9 +4,10 @@ import Search from "../../components/Search";
 import NewsList from "../../components/NewsList/NewsList";
 import { NewsContext } from "../../context/newsContext";
 import Loading from "../../components/Loading";
+import MyPagination from "../../components/Pagination";
 
 const HomePage = () => {
-  const { loading } = useContext(NewsContext);
+  const { news, loading } = useContext(NewsContext);
 
   return (
     <>
@@ -19,6 +20,7 @@ const HomePage = () => {
         <Row className="justify-content-center">
           {loading && <Loading />}
           <NewsList />
+          {news?.length > 0 && <MyPagination />}
         </Row>
       </main>
     </>

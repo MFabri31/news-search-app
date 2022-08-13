@@ -1,9 +1,9 @@
 import { Container, Navbar, Nav } from "react-bootstrap";
-import Logo from "../../assets/images/Logo.png";
+import Logo from "../../assets/images/logo.png";
 
 const NavBar = () => {
   return (
-    <Navbar bg="dark" variant="dark" className="text-uppercase">
+    <Navbar bg="light" variant="light" className="text-uppercase shadow">
       <Container>
         <Navbar.Brand href="#inicio">
           <img src={Logo} alt="logo" style={{ width: "2.5rem" }} />

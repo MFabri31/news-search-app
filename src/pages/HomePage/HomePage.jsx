@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { Row, Col } from "react-bootstrap";
+import { Row, Col, Alert } from "react-bootstrap";
 import Search from "../../components/Search";
 import NewsList from "../../components/NewsList/NewsList";
 import { NewsContext } from "../../context/newsContext";
@@ -21,6 +21,11 @@ const HomePage = () => {
           {loading && <Loading />}
           <NewsList />
           {news?.length > 0 && <MyPagination />}
+          {news?.length === 0 && (
+            <Alert variant="warning" className="w-50 text-center">
+              Sin resultados!
+            </Alert>
+          )}
         </Row>
       </main>
     </>

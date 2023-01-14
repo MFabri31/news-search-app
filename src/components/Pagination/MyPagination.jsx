@@ -1,9 +1,8 @@
-import { useContext } from "react";
 import Pagination from "react-bootstrap/Pagination";
-import { NewsContext } from "../../context/newsContext";
+import { useNewsContext } from "../../hooks/useNewsContext";
 
 const MyPagination = () => {
-  const { currentPage, totalPages, onChangePage } = useContext(NewsContext);
+  const { currentPage, totalPages, onChangePage } = useNewsContext();
 
   let items = [];
 

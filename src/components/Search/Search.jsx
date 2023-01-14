@@ -1,12 +1,12 @@
-import { useState, useContext } from "react";
+import { useState } from "react";
 import { Form, Button } from "react-bootstrap";
-import { NewsContext } from "../../context/newsContext";
+import { useNewsContext } from "../../hooks/useNewsContext";
 
 const Search = () => {
   const [form, setForm] = useState("");
   const [buttonDisabled, setButtonDisabled] = useState(true);
 
-  const { getTerm } = useContext(NewsContext);
+  const { getTerm } = useNewsContext();
 
   const handleChange = (e) => {
     if (e.target.value.length >= 3) setButtonDisabled(false);

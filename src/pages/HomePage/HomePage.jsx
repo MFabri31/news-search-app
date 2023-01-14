@@ -1,13 +1,12 @@
-import { useContext } from "react";
 import { Row, Col, Alert } from "react-bootstrap";
 import Search from "../../components/Search";
 import NewsList from "../../components/NewsList/NewsList";
-import { NewsContext } from "../../context/newsContext";
 import Loading from "../../components/Loading";
 import MyPagination from "../../components/Pagination";
+import { useNewsContext } from "../../hooks/useNewsContext";
 
 const HomePage = () => {
-  const { news, loading } = useContext(NewsContext);
+  const { news, loading } = useNewsContext();
 
   return (
     <>

@@ -1,10 +1,9 @@
-import { useContext } from "react";
 import { Col } from "react-bootstrap";
 import NewCard from "../NewsCard/NewsCard";
-import { NewsContext } from "../../context/newsContext";
+import { useNewsContext } from "../../hooks/useNewsContext";
 
 const NewsList = () => {
-  const { news, totalResults } = useContext(NewsContext);
+  const { news, totalResults } = useNewsContext();
 
   const newList = news?.map((news, index) => (
     <Col md={8}>

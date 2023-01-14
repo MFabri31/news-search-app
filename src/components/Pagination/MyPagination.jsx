@@ -3,8 +3,7 @@ import Pagination from "react-bootstrap/Pagination";
 import { NewsContext } from "../../context/newsContext";
 
 const MyPagination = () => {
-  const { currentPage, totalPages, onChangePage, setCurrentPage } =
-    useContext(NewsContext);
+  const { currentPage, totalPages, onChangePage } = useContext(NewsContext);
 
   let items = [];
 
@@ -13,7 +12,7 @@ const MyPagination = () => {
       <Pagination.Item
         key={page}
         active={page === currentPage}
-        onClick={() => onChangePage(number)}
+        onClick={() => onChangePage(page)}
       >
         {page}
       </Pagination.Item>
@@ -21,10 +20,10 @@ const MyPagination = () => {
   }
 
   const nextPage = () => {
-    if (currentPage !== totalPages) setCurrentPage(currentPage + 1);
+    if (currentPage !== totalPages) onChangePage(currentPage + 1);
   };
   const prevPage = () => {
-    if (currentPage !== 1) setCurrentPage(currentPage - 1);
+    if (currentPage !== 1) onChangePage(currentPage - 1);
   };
 
   return (

@@ -46,7 +46,6 @@ const NewsProvider = ({ children }) => {
         getTerm,
         totalResults,
         onChangePage,
-        setCurrentPage,
         currentPage,
         totalPages,
       }}

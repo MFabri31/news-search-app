@@ -26,7 +26,7 @@ const MyPagination = () => {
   };
 
   return (
-    <Pagination className="d-flex justify-content-center">
+    <Pagination className="d-flex justify-content-center" size="lg">
       <Pagination.Prev onClick={prevPage} />
       {items}
       <Pagination.Next onClick={nextPage} />

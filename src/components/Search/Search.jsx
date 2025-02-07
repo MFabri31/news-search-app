@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Form, Button } from "react-bootstrap";
+import { Form, Button, InputGroup } from "react-bootstrap";
 import { useNewsContext } from "../../hooks/useNewsContext";
 
 const Search = () => {
@@ -29,23 +29,25 @@ const Search = () => {
 
   return (
     <>
-      <Form onSubmit={handleSubmit}>
-        <Form.Control
-          type="text"
-          placeholder="Buscar noticia..."
-          className="py-2 mb-3 border-2 border-secondary shadow-none"
-          name="form"
-          value={form}
-          onChange={handleChange}
-        />
-        <Button
-          type="submit"
-          variant="dark"
-          className="btn-sm px-3 py-2 text-uppercase shadow-none"
-          disabled={buttonDisabled}
-        >
-          Buscar
-        </Button>
+      <Form onSubmit={handleSubmit} className="w-50">
+        <InputGroup>
+          <Form.Control
+            type="text"
+            placeholder="Política, economía, negocios, deportes..."
+            className="py-3 fs-4 fw-semibold w-75"
+            name="form"
+            value={form}
+            onChange={handleChange}
+          />
+          <Button
+            type="submit"
+            variant="primary"
+            className="text-uppercase fw-semibold px-4"
+            disabled={buttonDisabled}
+          >
+            <i class="bi bi-search fs-3"></i>
+          </Button>
+        </InputGroup>
       </Form>
     </>
   );

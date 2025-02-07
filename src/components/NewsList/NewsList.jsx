@@ -15,8 +15,8 @@ const NewsList = () => {
     <>
       <Col md={8}>
         {news?.length > 0 && (
-          <p className="lead ms-3">
-            Está viendo {news.length} noticias de {totalResults} resultados
+          <p className="lead fs-4 ms-3">
+            Estás viendo {news.length} noticias de {totalResults} resultados
           </p>
         )}
       </Col>
